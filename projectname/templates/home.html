@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block page_class %}home-page{% endblock %}
+
+{% block head_title %}{% trans "Django Social Boilerplate" %}{% endblock %}
+
+{% block header %}
+<nav>
+    <ul>
+        {% if user.is_authenticated %}
+	    <li>
+		<a href="{% url account_logout %}">{% trans "Logout" %}</a>
+	    </li>	    
+	{% else %}
+	    <li>
+		<a href="{% url account_login %}">{% trans "Login" %}</a>
+	    </li>	    
+	{% endif %}
+    </ul>    
+</nav>
+{% endblock %}
 
 {% block content %}
    {# todo: Include the main content here #}
-   <h1>{% trans "It works!" %}</h1>
+   <h1>{% trans "Django Social Boilerplate" %}</h1>
 
    <p>{% trans "Huzzah! You've got django-html5-boilerplate up and running. Edit 'templates/home.html' to modify this content." %}</p>
 {% endblock %}

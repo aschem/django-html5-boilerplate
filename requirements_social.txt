@@ -1,0 +1,8 @@
+Django>=1.3
+Fabric
+PIL
+South
+django-debug-toolbar
+sorl-thumbnail
+django-allauth
+

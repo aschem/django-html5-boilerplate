@@ -32,7 +32,7 @@ DATABASES = {
 }
 
 
-TIME_ZONE = 'Canada/Eastern'
+TIME_ZONE = 'America/Chicago'
 
 ROOT_URLCONF = 'urls_dev' #TODO: remove this on production
 
@@ -48,6 +48,10 @@ MEDIA_URL = '/media/' #TODO: on production (full URL to the media server)
 STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+# all_auth specific: use email auth by default.
+ACCOUNT_EMAIL_AUTHENTICATION = True
+ACCOUNT_EMAIL_REQUIRED = True
 
 # Allows for certain Django apps to be installed on a local basis,
 # independent of INSTALLED_APPS in the main settings.py file.

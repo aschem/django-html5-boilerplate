@@ -15,9 +15,11 @@ socket.setdefaulttimeout(5)
 
 SITE_ID = 1
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+USE_L10N = False
+
+USE_TZ = True
 
 gettext = lambda s: s
 LANGUAGES = (('en', gettext('English')),)
@@ -41,7 +43,7 @@ STATICFILES_FINDERS = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+#    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,11 +62,17 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    "allauth.context_processors.allauth",
+    "allauth.account.context_processors.account",
 
 )
 
+AUTHENTICATION_BACKENDS = (
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 ROOT_URLCONF = 'urls'
+LOGIN_REDIRECT_URL = '/'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, 'templates/'),
@@ -81,6 +89,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'sorl.thumbnail',
+    'emailconfirmation',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.twitter',
+    'allauth.openid',
+    'allauth.facebook',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -105,6 +121,7 @@ LOGGING = {
         },
     }
 }
+
 
 # import local settings overriding the defaults
 try:

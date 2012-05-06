@@ -5,10 +5,9 @@ from django.views.generic import TemplateView
 admin.autodiscover()
 
 
-
 urlpatterns = patterns('',
-    # url(r'^myapp/', include('myapp.urls')),
-    
+    url(r'^auth/', include('allauth.urls')),
+
     # Home Page -- Replace if you like
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 
