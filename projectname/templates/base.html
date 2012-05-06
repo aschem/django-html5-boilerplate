@@ -16,8 +16,6 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
     {% block css %}{% endblock %}
-    
-    <script src="{{ STATIC_URL }}js/libs/modernizr-2.5.2.min.js"></script>
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
@@ -40,8 +38,6 @@
     {% block javascript_library %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-    <script src="{{ STATIC_URL }}js/plugins.js"></script>
-    <script src="{{ STATIC_URL }}js/script.js"></script>
 
     {% endblock %}
     {% block javascript %}{% endblock %}
