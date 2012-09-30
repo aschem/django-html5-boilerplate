@@ -4,3 +4,6 @@ South
 django-debug-toolbar
 sorl-thumbnail
 django-allauth
+djangorestframework
+django-pipeline
+django-grappelli
